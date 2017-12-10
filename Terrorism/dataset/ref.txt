@@ -1,0 +1,2 @@
+dataset description : http://start.umd.edu/gtd/downloads/Codebook.pdf
+blog                : https://machinelearningmastery.com/multivariate-time-series-forecasting-lstms-keras/
