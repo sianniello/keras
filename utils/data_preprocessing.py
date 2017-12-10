@@ -5,17 +5,23 @@ from datetime import datetime
 from pandas import DataFrame, concat
 
 
-def load_dataset(filename):
+def load_dataset(filename, n_features, n_target):
     """
     Load dataset and split it into input and output variables
 
     @param filename: string
+    @param n_target: number
+    @param n_features: number
     @return: array, array
     """
-    dataset = loadtxt('dataset/' + filename, delimiter=',')
-    X = dataset[:, 0:8]
-    Y = dataset[:, 8]
-    return X, Y
+    try:
+        dataset = loadtxt('dataset/' + filename, delimiter=',')
+        x = dataset[:, 0:n_features]
+        y = dataset[:, n_features:n_target]
+    except FileNotFoundError:
+        print("Error")
+        return
+    return x, y
 
 
 def fetch_dataset(url, filename):
