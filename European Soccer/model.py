@@ -33,14 +33,14 @@ def baseline_model():
 
 X, Y = get_train_test()
 
-print(X.shape)
+print(X[1], Y[1])
 
 model = baseline_model()
 
 seed = np.random.seed(7)
 
 # evaluate model with standardized dataset
-estimator = KerasClassifier(build_fn=baseline_model, nb_epoch=100, batch_size=32, verbose=2)
+estimator = KerasClassifier(build_fn=baseline_model, nb_epoch=100, batch_size=5, verbose=1)
 kfold = StratifiedKFold(n_splits=10, shuffle=True, random_state=seed)
 results = cross_val_score(estimator, X, Y, cv=kfold)
 print("Results: %.2f%% (%.2f%%)" % (results.mean()*100, results.std()*100))

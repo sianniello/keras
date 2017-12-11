@@ -24,8 +24,7 @@ def get_train_test():
     dataset = scaler.fit_transform(dataset)
 
     Y = dataset[:, 2]
-    np.delete(dataset, 2, axis=1)
-    X = dataset
+    X = np.delete(dataset, 2, axis=1)
     print(X)
     print(Y)
 
